@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="randominteger.js" defer></script>
+
+</head>
+<style>
+    html{
+        font-family: sans-serif;
+    }
+    body{
+        width:50%;
+        max-width:800px;
+        min-width:480px;
+        margin:0 auto;
+    }
+    /* #result{
+       display:none; 
+      border-radius: 5px;
+      padding:10px;
+      border-color:rgb(35, 104, 207);
+      border-style:solid;
+      background-color: aqua;
+    } */
+</style>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>We have selected a random number between 1 and 100.See if you can guess it.We'll tell you 
+        if your guess was too high or too low.</p>
+
+    <p>Enter a guess    
+    <input type="number" id="guessInput" min="1" max="100">
+    <button id="guessButton">Submit guess</button>
+    </p>
+    
+    <div id="result">
+    <script>
+       
+        let randomNumber;
+        let attempts = 10;
+              
+        document.getElementById('guessButton').onclick = function() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                alert('Please enter a number between 1 and 100.');
+                return;
+            }
+
+            attempts--;
+            
+            if (guess === randomNumber) {
+                document.getElementById('result').innerText = 'Congratulations! You guessed the number!';
+            } else if (attempts === 0) {
+                document.getElementById('result').innerText = `Game over! The number was ${randomNumber}.`;
+            } else {
+                const hint = guess < randomNumber ? 'too low' : 'too high';
+                document.getElementById('result').innerText = `${hint}! `; 
+            } 
+          
+        };
+      
+    </script>
+    </div>
+</body>
+</html>

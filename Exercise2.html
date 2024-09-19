@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator Example</title>
+  </head>
+
+    <body>
+            <h1>Browser Information</h1>
+    <script>
+        // Get the user agent string
+        var userAgent = navigator.userAgent;
+        var userLanguage = navigator.language || navigator.userLanguage;
+
+       // Display the language in the document
+        document.write('<p>Your preferred language is: ' + userLanguage + '</p>');
+        
+        // Display the user agent in the document
+        document.write('<p>Your user agent is: ' + userAgent + '</p>');
+        </script>
+    </body>
+</html>        
